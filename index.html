@@ -68,10 +68,10 @@
     <h2 class="h2">三句話講完這份報告</h2>
     <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
       <div class="card"><h4>① 最大問題</h4><p class="dim">每 5 段對話就有 <b style="color:var(--bad)">4 段「已讀不回」</b>。流失絕大多數發生在「還沒聊到重點」就斷了。</p></div>
-      <div class="card"><h4>② 現況體質</h4><p class="dim">智能客服「<b style="color:var(--good)">答得準、不亂編</b>」已達標；但「<b style="color:var(--warn)">收尾、預約、輸出乾淨度</b>」還沒過關。</p></div>
-      <div class="card"><h4>③ 最大機會</h4><p class="dim">把流失客人「<b style="color:var(--good)">隔天主動撈回來</b>」，保守估計可讓成交量 <b style="color:var(--good)">+25%～+50%</b>。</p></div>
+      <div class="card"><h4>② 關鍵事實</h4><p class="dim">已斷掉的對話，<b style="color:var(--bad)">智能客服無法主動發訊息撈回</b>（Meta 平台規則限制，非開發缺口）。</p></div>
+      <div class="card"><h4>③ 該做什麼</h4><p class="dim">聚焦「<b style="color:var(--good)">客人還在對話的當下</b>」：把答題、預約、輸出品質修到能上線，讓還在線上的人不流失。</p></div>
     </div>
-    <p class="lede" style="margin-top:22px">結論：先把品質修到能上線（約 1–2 週可達），再開啟主動追蹤，把「沉默的 80%」變成業績。</p>
+    <p class="lede" style="margin-top:22px">結論：智能客服的有效範圍是「24 小時對話視窗內」；下一步是把這段的品質修到能上線（約 1–2 週可達），而不是去做做不到的跨日追蹤。</p>
     <div class="notes">這頁是電梯簡報。如果主管只看一頁，就是這頁。問題、體質、機會，三個一組講完，後面每一段都是在展開這三點的證據。</div>
   </section>
 
@@ -96,7 +96,7 @@
       <span class="counter gradient-text" data-to="80">0</span><span class="gradient-text">.28%</span>
     </div>
     <h3 class="mt-s">的對話「已讀不回、沒有後續」</h3>
-    <p class="lede" style="margin:14px auto 0">換算成白話：<b>每 5 段對話，就有 4 段斷在半路。</b>這 6,934 段流失，才是智能客服真正要解的題，不是「答錯問題」。</p>
+    <p class="lede" style="margin:14px auto 0">換算成白話：<b>每 5 段對話，就有 4 段斷在半路。</b>這 6,934 段流失是最大的洞——但要分清楚：哪些是 bot 在對話當下能救的，哪些是「對話已中斷、受平台限制救不了」的（見後）。</p>
     <div class="notes">這是全場最重要的數字。大家直覺以為客服的問題是「答錯」或「答不好」，但數據說不是——最大的洞是「對話直接斷掉」。80% 不是答錯，是根本沒接下去。把這個認知轉過來，後面的策略才會對。</div>
   </section>
 
@@ -193,31 +193,41 @@
 
   <!-- 10. 最大機會 stat -->
   <section class="slide center tc" data-title="最大機會">
-    <p class="kicker">機會 · 投報率最高的一步</p>
-    <h2 class="h2">把「沉默的 80%」撈回來</h2>
-    <div style="font-size:130px;line-height:1.05;font-weight:900" class="mt-s">
-      <span class="gradient-text">+25%</span> <span style="color:var(--text-3);font-size:60px">～</span> <span class="gradient-text">+50%</span>
-    </div>
-    <p class="lede" style="margin:16px auto 0">若隔天主動發訊息，只要把流失客人救回 <b>5%～10%</b>，就能讓整體成交承接量再增加 25%～50%。<br>對應話術依「斷在哪一步」客製：點選後沒下文、要 LINE 沒給、給門診沒接，各發不同訊息。</p>
-    <div class="notes">這是給老闆的「為什麼值得投資」。目前所有主動都只發生在當下那通對話，客人隔天才想起來，系統完全沒辦法撈他。但流失母體有 6,934 段，只要救回一小部分（5%～10%），換算回成交量就是 +25%～+50%。注意這是情境假設，要用 A/B 驗證；但即使打對折也很可觀。</div>
-  </section>
-
-  <!-- 11. 前提 -->
-  <section class="slide" data-title="前提">
-    <p class="kicker">務實 · 落地前的一個前提</p>
-    <h2 class="h2">「隔天主動發訊息」有平台規則要過</h2>
+    <p class="kicker">釐清 · 一個必須講清楚的事實</p>
+    <h2 class="h2">已斷掉的對話，智能客服<span class="gradient-text">無法主動撈回</span></h2>
     <div class="grid g2 mt-l">
-      <div class="card bad-side" style="border-top:3px solid var(--warn)">
-        <h4>⚠️ 限制</h4>
-        <p class="dim">Facebook Messenger 規定：客人最後互動 <b>超過 24 小時</b>後，一般訊息不能直接發送。</p>
+      <div class="card bad-side" style="border-top:3px solid var(--bad)">
+        <h4>⛔ 為什麼撈不回（平台規則）</h4>
+        <ul style="padding-left:18px;font-size:15px;line-height:1.8;color:var(--text-2);margin:6px 0 0">
+          <li>客人最後互動 <b>超過 24 小時</b>，bot 不能自動發訊息</li>
+          <li>標準訊息標籤 → 2026 陸續停用</li>
+          <li>一次性通知 OTN → 已淘汰</li>
+          <li>行銷訊息（Marketing Messages）→ <b>台灣不適用</b></li>
+        </ul>
       </div>
       <div class="card good-side" style="border-top:3px solid var(--good)">
-        <h4>✅ 可行管道</h4>
-        <p class="dim">須改用官方允許的方式：訂閱式通知（OTN）、付費訊息，或在 24 小時內完成第一次追蹤。<b>需先確認，再開發。</b></p>
+        <h4>✅ 智能客服唯一的有效範圍</h4>
+        <p class="dim" style="line-height:1.8">客人<b>還在線上、24 小時對話視窗內</b>——這段時間 bot 能自動回覆、推進。<br><br>（7 天內主動接觸只能靠<b>真人客服手動</b>處理，屬人力作業，非智能客服能力範圍。）</p>
       </div>
     </div>
-    <p class="lede" style="margin-top:18px">這不是「改幾行程式」就能上線——所以我們把它列為<b>平行任務</b>，與品質修正同時推進，不卡住上線時程。</p>
-    <div class="notes">這頁是負責任地告訴主管：這個機會很大，但不是免費午餐。Meta 對主動發訊息有規則，超過 24 小時要走特定管道（OTN 或付費）。我特別把它獨立出來講，是因為不想讓大家以為「下週就能隔天追蹤」。它要先做合規確認，所以排成平行軌，不擋主線。</div>
+    <p class="lede" style="margin-top:18px">所以這<b>不是「開發補強」能解的，是 Meta 平台的硬限制</b>。智能客服要發揮價值，得在客人還在線上時就接好。</p>
+    <div class="notes">這頁是把話講清楚、避免誤解。經查證 Meta 2026 規則：bot 在 24 小時外沒有合規的自動主動發訊息管道（標籤停用、OTN 淘汰、行銷訊息台灣用不到）。所以「隔天自動追蹤」做不到，不是我們不做，是平台不允許。結論轉個彎——既然撈不回，就把力氣放在「客人還在的當下別讓他流失」。</div>
+  </section>
+
+  <!-- 11. 可以 Cover 的流程 -->
+  <section class="slide" data-title="可Cover範圍">
+    <p class="kicker">現況 · 對話視窗內，它能做的事</p>
+    <h2 class="h2">智能客服「現在就能 cover」的流程</h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card"><h4>🧠 療程／困擾探索</h4><p class="dim">廣告回覆 83% 的主任務。辨識療程部位、釐清困擾、衛教、導向評估。<br><span class="chip ok">✅ 可 cover</span></p></div>
+      <div class="card"><h4>💰 問價／價格評估</h4><p class="dim">問價節點 2,381 段。RAG 回價格範圍與計價邏輯。<br><span class="chip mid">⚠️ 價格資料待補</span></p></div>
+      <div class="card"><h4>💬 同一輪即時追問</h4><p class="dim">答完補一句關懷，把球丟回客人。<br><span class="chip ok">✅ 可 cover</span></p></div>
+      <div class="card"><h4>📞 收聯絡／轉私域</h4><p class="dim">客服要求聯絡 2,500 段。順勢收資料、產生交接摘要。<br><span class="chip ok">✅ 可 cover</span></p></div>
+      <div class="card"><h4>📅 預約資料收集</h4><p class="dim">收缺漏欄位，插問先答再回。<br><span class="chip mid">⚠️ 收尾待達標</span></p></div>
+      <div class="card"><h4>🛡️ 安全／客訴／隱私</h4><p class="dim">安撫、守門、轉真人；真人接手自動讓位。<br><span class="chip ok">✅ 可 cover</span></p></div>
+    </div>
+    <p class="lede" style="margin-top:16px">重點：讓<b>「還在對話中的客人」不流失</b>、推進到留聯絡或預約——這才是智能客服真正能發力的地方。</p>
+    <div class="notes">承接上一頁。既然撈不回流失的，就把能 cover 的講清楚：療程探索、問價、即時追問、收聯絡、預約、安全守門——這些在「客人還在線上」時都能做，而且涵蓋了最大宗的對話量。打勾的是已達標，警示的是修一修就能上線。這頁讓主管看到：智能客服不是沒用，是用在對的範圍。</div>
   </section>
 
   <!-- 12. 時程 timeline -->
@@ -257,8 +267,8 @@
         <ul>
           <li>大型題庫撰寫（人工，需時間）</li>
           <li>A/B 驗證（要累積足夠對話量）</li>
-          <li>Messenger 主動訊息（等 Meta 審核）</li>
-          <li>→ <b>受流量與外部依賴綁定</b></li>
+          <li>上線後真實成效回收（需時間累積）</li>
+          <li>→ <b>受流量與時間綁定</b></li>
         </ul>
       </div>
     </div>
@@ -269,9 +279,9 @@
   <!-- 14. CTA -->
   <section class="slide center tc" data-title="結論">
     <p class="kicker">給決策者的一句話</p>
-    <h1 class="h1 anim-rise-in" data-anim="rise-in">先修品質、灰度上線，<br>把<span class="gradient-text">沉默的 80%</span>變成業績</h1>
-    <p class="lede" style="margin:18px auto 0">智能客服「會答」已經做到；下一步是「不漏接」。<br>1–2 週修品質 → 7 月中灰度上線 → 8 月開啟隔天主動追蹤，預期成交承接 +25%～+50%。</p>
-    <div class="notes">收束成一個行動呼籲。我們要的決策很簡單：批准走「先修品質、灰度上線、再開主動追蹤」這條路。會答已經做到，接下來是不漏接。時程清楚、潛在回報清楚。請主管拍板。</div>
+    <h1 class="h1 anim-rise-in" data-anim="rise-in">修好品質、灰度上線，<br>把<span class="gradient-text">對話視窗內</span>的客人接好</h1>
+    <p class="lede" style="margin:18px auto 0">智能客服「會答」已經做到；下一步是在客人還在線上時「不漏接」。<br>1–2 週修品質 → 約 7 月中灰度上線 → 8 月達上線門檻。<br><span class="dim2">（已斷掉的對話受平台限制無法 bot 主動撈回，不列入規劃。）</span></p>
+    <div class="notes">收束成行動呼籲。決策很簡單：批准走「先修品質、灰度上線」這條路，把智能客服用在它能發揮的範圍——客人還在對話的當下。誠實說明跨日撈回是平台限制做不到，不畫大餅。時程清楚，請主管拍板。</div>
   </section>
 
   <!-- 15. Thanks -->
