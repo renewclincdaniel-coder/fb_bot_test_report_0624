@@ -58,7 +58,7 @@
     <p class="kicker">Facebook 智能客服 · 成效報告 · 2026-06-24</p>
     <h1 class="h1 anim-fade-up" data-anim="fade-up">我們的智能客服，<br>現在能<span class="gradient-text">接住多少客人</span>？</h1>
     <p class="lede">用 8,637 段真實對話，看清現況、找出最大機會、訂出可執行時程。</p>
-    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="20"></span></div>
+    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="21"></span></div>
     <div class="notes">這份報告給管理層看。一句話開場：我們不是來秀技術，是來回答一個生意問題——廣告花錢帶進來的客人，最後有多少被接住、沒接住的怎麼救、什麼時候能改善。全程用真實對話數據，不是憑感覺。</div>
   </section>
 
@@ -238,6 +238,27 @@
     </div>
     <p class="lede" style="margin-top:18px">關鍵：系統按「<b>每則訊息的情緒＋意圖</b>」動態分流，不是寫死單一流程——同一意圖不管客人怎麼講，都導到同一條路。這就是少數情境能吸收大量路徑變化的原因。</p>
     <div class="notes">這頁直接回答「流程那麼多變，怎麼可能覆蓋」。答案：覆蓋是看意圖、不是看路徑。路徑會發散，意圖會收斂。系統每一則訊息都重判意圖再分流，所以路徑變化被吸收掉。兩個數字：保守 81.6%（只看第一句），實際 90.8%（把自由文字裡其實在談療程的算回，因為其中 59.6% 整段帶療程標籤）。都可從 8,637 段重算。</div>
+  </section>
+
+  <!-- 8c-2. 意圖如何收斂 -->
+  <section class="slide" data-title="意圖收斂">
+    <p class="kicker">原理 · 意圖怎麼「收斂」、為何做得到</p>
+    <h2 class="h2">一萬種講法 → 收斂成 <span class="gradient-text">7 類意圖</span></h2>
+    <div class="flow anim-stagger-list" data-anim-target style="margin-top:22px">
+      <div class="node"><div class="ic">💬</div><h4>客人各種講法</h4><p>「會痛嗎」「埋線安全嗎」<br>「恢復多久」「會留疤嗎」</p></div>
+      <div class="arr">→</div>
+      <div class="node hl" style="border-color:var(--accent)"><div class="ic">🧠</div><h4>LLM 讀「語意」</h4><p>理解意思，不是比對關鍵字</p></div>
+      <div class="arr">→</div>
+      <div class="node win"><div class="ic">🎯</div><h4>固定意圖標籤</h4><p>treatment_info（療程）</p></div>
+    </div>
+    <p class="dim" style="text-align:center;margin-top:10px;font-size:13px">固定 7 類：療程 ｜ 問價 ｜ 預約 ｜ 術後/客訴 ｜ 隱私 ｜ 閒聊 ｜ 其他 —— 每類對應一條處理路徑</p>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card" style="padding:16px"><h4>① LLM 語意判斷（主力）</h4><p class="dim" style="font-size:13px">讀整句語意，輸出意圖+情緒；同義、錯字、中英夾雜都能對到同一意圖</p></div>
+      <div class="card" style="padding:16px"><h4>② 關鍵字快速通道</h4><p class="dim" style="font-size:13px">預約/客訴/威脅/隱私等高風險，先用規則確定性兜底，不全交給 LLM</p></div>
+      <div class="card" style="padding:16px"><h4>③ 複核 + 快取 + 保底</h4><p class="dim" style="font-size:13px">LLM 再驗證、Redis 快取 1 小時、判斷失敗退回預設，穩定可控</p></div>
+    </div>
+    <p class="lede" style="margin-top:16px"><b>為何 LLM 做得到：</b>它理解的是「意思」不是字面，連沒見過的講法也能判——這正是能吸收「流程變量很多」的根本。<span class="dim2">（但非 100% 準，高風險才用關鍵字硬規則兜底。）</span></p>
+    <div class="notes">這頁回答「意圖怎麼收斂、為什麼能」。核心：客人講法無限，但系統只認 7 類固定意圖標籤，每類一條路。怎麼對應？主力是 LLM 讀語意——「會痛嗎/埋線安全嗎/恢復多久」字面全不同，但意思都是想了解療程，LLM 能對到同一類，這是舊式關鍵字做不到的。再用關鍵字快速通道兜高風險、LLM 複核、快取、fallback 保穩定。誠實說：LLM 不是 100%，所以客訴/威脅/隱私不完全靠它。</div>
   </section>
 
   <!-- 8d. Edge Cases + 可量化/不可量化 -->
