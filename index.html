@@ -58,7 +58,7 @@
     <p class="kicker">Facebook 智能客服 · 成效報告 · 2026-06-24</p>
     <h1 class="h1 anim-fade-up" data-anim="fade-up">我們的智能客服，<br>現在能<span class="gradient-text">接住多少客人</span>？</h1>
     <p class="lede">用 8,637 段真實對話，看清現況、找出最大機會、訂出可執行時程。</p>
-    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="23"></span></div>
+    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="25"></span></div>
     <div class="notes">這份報告給管理層看。一句話開場：我們不是來秀技術，是來回答一個生意問題——廣告花錢帶進來的客人，最後有多少被接住、沒接住的怎麼救、什麼時候能改善。全程用真實對話數據，不是憑感覺。</div>
   </section>
 
@@ -259,6 +259,52 @@
     </div>
     <p class="lede" style="margin-top:16px"><b>為何 LLM 做得到：</b>它理解的是「意思」不是字面，連沒見過的講法也能判——這正是能吸收「流程變量很多」的根本。<span class="dim2">（但非 100% 準，高風險才用關鍵字硬規則兜底。）</span></p>
     <div class="notes">這頁回答「意圖怎麼收斂、為什麼能」。核心：客人講法無限，但系統只認 7 類固定意圖標籤，每類一條路。怎麼對應？主力是 LLM 讀語意——「會痛嗎/埋線安全嗎/恢復多久」字面全不同，但意思都是想了解療程，LLM 能對到同一類，這是舊式關鍵字做不到的。再用關鍵字快速通道兜高風險、LLM 複核、快取、fallback 保穩定。誠實說：LLM 不是 100%，所以客訴/威脅/隱私不完全靠它。</div>
+  </section>
+
+  <!-- 8c-2b. Flow-based vs Intent-based -->
+  <section class="slide" data-title="Flow→Intent">
+    <p class="kicker">架構演進 · 為什麼用意圖、不用固定流程</p>
+    <h2 class="h2">客人不會照「選單」說話</h2>
+    <div class="vs">
+      <div class="card bad-side side anim-fade-left" data-anim="fade-left">
+        <h3>📉 傳統 Flow-based（選單式）</h3>
+        <ul>
+          <li>訊息 → 流程A → 流程B，客人要照劇本走</li>
+          <li>「請選 1.預約 2.價格 3.術後…」</li>
+          <li><b>一句話混多個需求就失效</b></li>
+        </ul>
+      </div>
+      <div class="mid">→</div>
+      <div class="card good-side side anim-fade-right" data-anim="fade-right">
+        <h3>📈 現代 Intent-based（本系統）</h3>
+        <ul>
+          <li>訊息 → <b>意圖</b> → 狀態 → 動作 → 回應</li>
+          <li>先理解「客人想做什麼」再決定怎麼回</li>
+          <li>一句多需求也能拆開處理</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ex">💬 <b>醫美最典型一句話：</b>「最近法令紋很深，想知道玻尿酸恢復期，下週能諮詢嗎？」＝ 困擾（法令紋）＋療程（玻尿酸）＋問題（恢復期）＋意圖（預約）。<b>Flow-based 會卡死；Intent-based 一次拆解、回完。</b></div>
+    <div class="notes">解釋為什麼用意圖當骨架。傳統選單式 chatbot 要客人照劇本走，但真實客人一句話常混很多需求，固定流程一碰就失效。Intent-based 先判意圖再分流，所以能吸收變化。用醫美那句經典四合一的話當例子最有感。這頁是把前一頁「意圖收斂」的原理,放到「架構演進」的高度。</div>
+  </section>
+
+  <!-- 8c-2c. 業界共識 + 衡量框架 -->
+  <section class="slide" data-title="業界共識">
+    <p class="kicker">業界共識 · 國際 AI 客服都這樣做</p>
+    <h2 class="h2">「意圖優先」是國際標竿的共同做法</h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card"><h4>Intercom Fin</h4><p class="dim" style="font-size:13px">理解意圖 → 取知識 → 執行動作 → 生成回應</p></div>
+      <div class="card"><h4>Salesforce Agentforce</h4><p class="dim" style="font-size:13px">推理＋動作＋客戶脈絡，底層即 訊息→意圖→狀態→動作</p></div>
+      <div class="card"><h4>Ada</h4><p class="dim" style="font-size:13px">Understand → Reason → Act，支援「一句多意圖」</p></div>
+    </div>
+    <p class="lede" style="margin-top:18px;margin-bottom:6px">對外衡量也對齊它們的標準指標（<b>只列已量測的真實數字</b>）：</p>
+    <div class="grid g4">
+      <div class="card" style="padding:14px"><p class="eyebrow">覆蓋率</p><div style="font-size:30px;font-weight:800;color:var(--good)">81.6–90.8%</div><p class="dim" style="font-size:12px">✅ 已量測</p></div>
+      <div class="card" style="padding:14px"><p class="eyebrow">自由文字導回率</p><div style="font-size:30px;font-weight:800;color:var(--good)">59.6%</div><p class="dim" style="font-size:12px">✅ 已量測</p></div>
+      <div class="card" style="padding:14px"><p class="eyebrow">承接率(proxy)</p><div style="font-size:30px;font-weight:800;color:var(--good)">15.8%</div><p class="dim" style="font-size:12px">✅ 已量測</p></div>
+      <div class="card" style="padding:14px"><p class="eyebrow">自動化/轉真人率/轉換提升</p><div style="font-size:30px;font-weight:800;color:var(--text-3)">待量測</div><p class="dim" style="font-size:12px">⏳ 需上線/標註</p></div>
+    </div>
+    <div class="notes">兩個訊息：一是「我們的做法跟國際標竿(Intercom/Salesforce/Ada)同一套架構思維」,增加可信度;二是對外成效要用它們那套標準指標,但我誠實只放已量測的真實數字(覆蓋率、自由文字導回 59.6%、承接率 15.8%),自動化率/轉真人率/轉換提升這些要上線或人工標註才有,標「待量測」不填示意數字。</div>
   </section>
 
   <!-- 8c-3. 意圖→處理→轉人工 -->
