@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="aurora">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Facebook 智能客服 · 測試成效與下一步（2026-06-24）</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" id="theme-link" href="assets/themes/aurora.css">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<style>
+  /* 漏斗 */
+  .flow{display:flex;align-items:stretch;gap:12px;margin-top:30px;flex-wrap:wrap}
+  .flow .node{flex:1;min-width:120px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 12px;text-align:center;box-shadow:var(--shadow)}
+  .flow .node .ic{font-size:26px;margin-bottom:4px}
+  .flow .node h4{font-size:15px;margin:0}
+  .flow .node p{font-size:12px;color:var(--text-3);margin:4px 0 0}
+  .flow .arr{color:var(--text-3);font-size:24px;align-self:center;flex-shrink:0}
+  .flow .node.leak{border-color:var(--bad);box-shadow:0 0 0 2px color-mix(in srgb,var(--bad) 22%,transparent),var(--shadow)}
+  .flow .node.win{border-color:var(--good);box-shadow:0 0 0 2px color-mix(in srgb,var(--good) 22%,transparent),var(--shadow)}
+  /* 表格 */
+  .t{width:100%;border-collapse:collapse;font-size:16px}
+  .t th,.t td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--border)}
+  .t th{font-size:12px;letter-spacing:.08em;color:var(--text-3);font-weight:600}
+  .t td.num{font-variant-numeric:tabular-nums;text-align:right}
+  .t tr:hover td{background:var(--surface-2)}
+  .t .bad{color:var(--bad);font-weight:700}
+  .t .good{color:var(--good);font-weight:700}
+  /* 時間線 */
+  .tl{position:relative;margin-top:36px}
+  .tl::before{content:"";position:absolute;left:0;right:0;top:46px;height:2px;background:var(--border)}
+  .tl .row{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;align-items:start}
+  .tl .item{position:relative;padding-top:78px;text-align:center}
+  .tl .dot{position:absolute;top:34px;left:50%;transform:translateX(-50%);width:22px;height:22px;border-radius:50%;background:var(--accent);border:4px solid var(--bg);box-shadow:0 0 0 2px var(--accent)}
+  .tl .item.gate .dot{background:var(--warn);box-shadow:0 0 0 2px var(--warn)}
+  .tl .when{font-size:13px;color:var(--text-3);letter-spacing:.06em;position:absolute;top:0;left:0;right:0;font-weight:600}
+  .tl h4{font-size:16px;margin:0}
+  .tl p{font-size:12px;color:var(--text-2);margin:6px 0 0}
+  /* 對比 */
+  .vs{display:grid;grid-template-columns:1fr 70px 1fr;gap:22px;align-items:stretch;margin-top:24px}
+  .vs .side{padding:26px}
+  .vs .mid{font-size:46px;font-weight:800;color:var(--text-3);display:flex;align-items:center;justify-content:center}
+  .vs .bad-side{border-top:3px solid var(--bad)}
+  .vs .good-side{border-top:3px solid var(--good)}
+  .vs h3{font-size:22px;margin:0 0 10px}
+  .vs ul{padding-left:18px;font-size:15px;line-height:1.7;color:var(--text-2);margin:0}
+  .chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;border:1px solid var(--border-strong)}
+  .chip.ok{color:var(--good)}.chip.no{color:var(--bad)}.chip.mid{color:var(--warn)}
+  .ex{font-size:14px;line-height:1.6;color:var(--text-2);background:var(--surface);border-left:3px solid var(--accent-2);border-radius:8px;padding:10px 14px;margin-top:10px}
+  .ex b{color:var(--text-1)}
+</style>
+</head>
+<body data-themes="aurora,tokyo-night,corporate-clean,minimal-white,xiaohongshu-white" data-theme-base="assets/themes/">
+<div class="deck">
+
+  <!-- 1. Cover -->
+  <section class="slide" data-title="封面">
+    <p class="kicker">Facebook 智能客服 · 成效報告 · 2026-06-24</p>
+    <h1 class="h1 anim-fade-up" data-anim="fade-up">我們的智能客服，<br>現在能<span class="gradient-text">接住多少客人</span>？</h1>
+    <p class="lede">用 8,637 段真實對話，看清現況、找出最大機會、訂出可執行時程。</p>
+    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="15"></span></div>
+    <div class="notes">這份報告給管理層看。一句話開場：我們不是來秀技術，是來回答一個生意問題——廣告花錢帶進來的客人，最後有多少被接住、沒接住的怎麼救、什麼時候能改善。全程用真實對話數據，不是憑感覺。</div>
+  </section>
+
+  <!-- 2. Executive summary -->
+  <section class="slide" data-title="一頁看懂">
+    <p class="kicker">一頁看懂</p>
+    <h2 class="h2">三句話講完這份報告</h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card"><h4>① 最大問題</h4><p class="dim">每 5 段對話就有 <b style="color:var(--bad)">4 段「已讀不回」</b>。流失絕大多數發生在「還沒聊到重點」就斷了。</p></div>
+      <div class="card"><h4>② 現況體質</h4><p class="dim">智能客服「<b style="color:var(--good)">答得準、不亂編</b>」已達標；但「<b style="color:var(--warn)">收尾、預約、輸出乾淨度</b>」還沒過關。</p></div>
+      <div class="card"><h4>③ 最大機會</h4><p class="dim">把流失客人「<b style="color:var(--good)">隔天主動撈回來</b>」，保守估計可讓成交量 <b style="color:var(--good)">+25%～+50%</b>。</p></div>
+    </div>
+    <p class="lede" style="margin-top:22px">結論：先把品質修到能上線（約 1–2 週可達），再開啟主動追蹤，把「沉默的 80%」變成業績。</p>
+    <div class="notes">這頁是電梯簡報。如果主管只看一頁，就是這頁。問題、體質、機會，三個一組講完，後面每一段都是在展開這三點的證據。</div>
+  </section>
+
+  <!-- 3. 背景 -->
+  <section class="slide" data-title="背景">
+    <p class="kicker">背景 · 我們在看什麼</p>
+    <h2 class="h2">8,637 段真實對話，四個來路</h2>
+    <div class="grid g4 mt-l anim-stagger-list" data-anim-target>
+      <div class="card"><p class="eyebrow">廣告回覆</p><div style="font-size:46px;font-weight:800">7,173</div><p class="dim">83%，主戰場</p></div>
+      <div class="card"><p class="eyebrow">直接私訊</p><div style="font-size:46px;font-weight:800">840</div><p class="dim">10%，主動找上門</p></div>
+      <div class="card"><p class="eyebrow">貼文留言</p><div style="font-size:46px;font-weight:800">614</div><p class="dim">7%</p></div>
+      <div class="card"><p class="eyebrow">貼文回覆</p><div style="font-size:46px;font-weight:800">10</div><p class="dim">樣本極小</p></div>
+    </div>
+    <div class="ex">✅ <b>數據可信</b>：這些數字已逐筆對照原始 Facebook 後台匯出資料，獨立重算與官方流程完全一致（總數、四個來路、各類佔比 100% 吻合），不是估計值。</div>
+    <div class="notes">先建立信任：這份分析不是抽樣、不是猜的。我們拿原始 FB 後台匯出檔，自己寫程式重算一次，跟既有分析流程的結果逐一比對，完全一樣。所以後面所有結論都站得住腳。廣告回覆佔八成，是花錢買來的流量，所以它就是主戰場。</div>
+  </section>
+
+  <!-- 4. 核心發現 stat -->
+  <section class="slide center tc" data-title="核心發現">
+    <p class="kicker">核心發現 · 最痛的一個數字</p>
+    <div style="font-size:200px;line-height:1;font-weight:900;letter-spacing:-.04em">
+      <span class="counter gradient-text" data-to="80">0</span><span class="gradient-text">.28%</span>
+    </div>
+    <h3 class="mt-s">的對話「已讀不回、沒有後續」</h3>
+    <p class="lede" style="margin:14px auto 0">換算成白話：<b>每 5 段對話，就有 4 段斷在半路。</b>這 6,934 段流失，才是智能客服真正要解的題，不是「答錯問題」。</p>
+    <div class="notes">這是全場最重要的數字。大家直覺以為客服的問題是「答錯」或「答不好」，但數據說不是——最大的洞是「對話直接斷掉」。80% 不是答錯，是根本沒接下去。把這個認知轉過來，後面的策略才會對。</div>
+  </section>
+
+  <!-- 5. 流失發生在哪 table -->
+  <section class="slide" data-title="流失在哪">
+    <p class="kicker">拆解 · 流失到底斷在哪一步</p>
+    <h2 class="h2">破口集中在「對話最前段」</h2>
+    <div class="card mt-l" style="padding:6px 16px">
+    <table class="t">
+      <thead><tr><th>斷點</th><th class="num">對話數</th><th class="num">佔全體</th><th>白話解讀</th></tr></thead>
+      <tbody>
+        <tr><td>快速回覆後沒下文</td><td class="num">2,091</td><td class="num bad">24.21%</td><td>客人點了一次按鈕就消失</td></tr>
+        <tr><td>客服開場/問完需求後不回</td><td class="num">2,067</td><td class="num bad">23.93%</td><td>打完招呼、問完問題，客人沒回</td></tr>
+        <tr><td>一般客服訊息後不回</td><td class="num">848</td><td class="num">9.82%</td><td>停在普通對話</td></tr>
+        <tr><td>給了門診/LINE 後沒接</td><td class="num">818</td><td class="num">9.47%</td><td>已推到轉換點卻沒跨過去</td></tr>
+        <tr><td>要 LINE/電話後客人不給</td><td class="num">680</td><td class="num">7.87%</td><td>臨門一腳卡住</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="lede" style="margin-top:16px">前兩項合計 <b style="color:var(--bad)">約 48%</b>——將近一半的對話，在「還沒進入實質諮詢」前就斷了。</p>
+    <div class="notes">把 80% 拆開看，重點來了：流失不是平均分布，是高度集中在最前段。客人點個按鈕、或客服剛開口，就沒了。這代表優化的著力點很明確——先救前段，投報率最高。後段那兩項（要聯絡、給門診沒接）是臨門一腳，第二優先。</div>
+  </section>
+
+  <!-- 6. 漏斗 flow -->
+  <section class="slide" data-title="漏斗">
+    <p class="kicker">視覺化 · 客人的旅程</p>
+    <h2 class="h2">兩個破口，在漏斗的頭與尾</h2>
+    <div class="flow anim-stagger-list" data-anim-target>
+      <div class="node"><div class="ic">📨</div><h4>進來</h4><p>看到廣告/私訊</p></div>
+      <div class="arr">→</div>
+      <div class="node leak"><div class="ic">👆</div><h4>點選</h4><p class="bad">破口①<br>−24%</p></div>
+      <div class="arr">→</div>
+      <div class="node leak"><div class="ic">💬</div><h4>開場</h4><p class="bad">破口②<br>−24%</p></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="ic">📋</div><h4>諮詢</h4><p>療程/價格</p></div>
+      <div class="arr">→</div>
+      <div class="node leak"><div class="ic">📞</div><h4>要聯絡</h4><p class="bad">−17%</p></div>
+      <div class="arr">→</div>
+      <div class="node win"><div class="ic">🎯</div><h4>承接</h4><p class="good">15.8%</p></div>
+    </div>
+    <p class="lede" style="margin-top:24px">最終留下聯絡或進到預約的，只有 <b style="color:var(--good)">15.80%（1,365 段）</b>；其中真正進到預約協調的僅 4.35%。</p>
+    <div class="notes">用一張圖讓大家記住：漏斗有兩個破口，一個在頭（點選、開場），一個在尾（要聯絡方式）。中間的諮詢其實還好。所以策略不是「把客服訓練得更會講療程」，而是「堵住頭尾兩個洞」。最後成交承接 15.8%，還有很大空間。</div>
+  </section>
+
+  <!-- 7. 好消息 -->
+  <section class="slide" data-title="好消息">
+    <p class="kicker">好消息 · 一個反直覺發現</p>
+    <h2 class="h2">主動找上門的客人，轉換明顯更高</h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card"><p class="eyebrow">廣告回覆</p><div style="font-size:54px;font-weight:800">14.89<span style="font-size:24px">%</span></div><p class="dim">花錢買來的流量</p></div>
+      <div class="card" style="border-color:var(--accent-2)"><p class="eyebrow">直接私訊</p><div style="font-size:54px;font-weight:800;color:var(--accent)">19.05<span style="font-size:24px">%</span></div><p class="dim" style="color:var(--good)">↑ 主動找上門</p></div>
+      <div class="card" style="border-color:var(--accent)"><p class="eyebrow">貼文留言</p><div style="font-size:54px;font-weight:800;color:var(--accent)">21.17<span style="font-size:24px">%</span></div><p class="dim" style="color:var(--good)">↑ 轉換最高</p></div>
+    </div>
+    <p class="lede" style="margin-top:22px">啟示：<b>自然觸及（貼文、私訊）的客人意願更強</b>。智能客服把這群人服務好，比一味加廣告預算更划算。</p>
+    <div class="notes">這頁給行銷決策一個彈藥：不是所有流量都一樣。主動私訊、留言來的客人，轉換率比廣告高 4–6 個百分點。意思是這群人本來就更想成交，只要我們別漏接。對老闆來說這是「資源配置」的訊號——別只想著加廣告，先把高意願的自然流量接好。</div>
+  </section>
+
+  <!-- 8. 現在能做什麼 -->
+  <section class="slide" data-title="現況能力">
+    <p class="kicker">現況 · 智能客服已經會什麼</p>
+    <h2 class="h2">它現在「聽得懂、答得準、守得住」</h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card"><h4>🧠 聽得懂 + 答得準</h4><p class="dim">能辨識療程、價格、地點等問題，從知識庫找答案回覆，全程繁體中文。</p></div>
+      <div class="card"><h4>💬 會主動追問</h4><p class="dim">回答後自動補一句關心，把話題接回客人，降低「答完就斷」。</p></div>
+      <div class="card"><h4>🛡️ 守得住風險</h4><p class="dim">遇到客訴、術後、隱私查詢，自動安撫並轉真人；真人接手時 AI 自動讓位。</p></div>
+    </div>
+    <div class="ex">💡 <b>實際範例</b>　客人：「想了解皮秒雷射」→ AI：「皮秒主要針對毛孔與斑點…效果顯著。<b>｜｜｜</b>請問您之前有做過雷射保養嗎？😊」（系統自動拆成兩則、隔 1.5 秒發出關心句）</div>
+    <div class="notes">先肯定現有成果，不要讓團隊覺得被否定。智能客服該會的基本功——聽懂問題、查資料回答、守住風險——都已經有了，而且有具體機制在跑。這個範例展示「主動追問」：它不是答完就停，會再丟一個問題把球給客人。這就是針對前段流失設計的，只是目前只在同一通對話內生效。</div>
+  </section>
+
+  <!-- 9. 測試成績單 -->
+  <section class="slide" data-title="測試成績單">
+    <p class="kicker">測試 · DeepEval 品質檢驗</p>
+    <h2 class="h2">成績單：底子好，收尾還沒過關</h2>
+    <div class="grid g2 mt-l">
+      <div class="card good-side" style="border-top:3px solid var(--good)">
+        <h4>✅ 已達標</h4>
+        <p class="dim" style="line-height:1.9">
+        <span class="chip ok">答題相關性 0.98</span><br>
+        <span class="chip ok">不亂編造 1.00</span>　回答有根據、不捏造<br>
+        <span class="chip ok">系統可穩定執行</span>　評估框架已就緒</p>
+      </div>
+      <div class="card bad-side" style="border-top:3px solid var(--warn)">
+        <h4>⚠️ 尚未過關</h4>
+        <p class="dim" style="line-height:1.9">
+        <span class="chip mid">預約收尾 0.72</span>　目標 0.80<br>
+        <span class="chip no">繁體中文輸出</span>　內部標記漏到客人眼前<br>
+        <span class="chip mid">資料檢索精準 0.74</span>　價格類證據需補強</p>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:18px">白話：<b>會答、答得對、不唬爛</b>——這些難的都做到了；剩下的是<b>「把話講乾淨、把預約收尾、把價格資料補齊」</b>這類收尾工。</p>
+    <div class="notes">這頁要誠實但不悲觀。最難的能力——答得對、不亂編——已經達標，這是好事。沒過的三項其實都是「收尾」性質：繁中輸出有個內部標記漏出來（單點修正就能大幅改善）、預約流程收尾差一點、價格資料庫要補。這些是工程細活，不是推倒重來。</div>
+  </section>
+
+  <!-- 10. 最大機會 stat -->
+  <section class="slide center tc" data-title="最大機會">
+    <p class="kicker">機會 · 投報率最高的一步</p>
+    <h2 class="h2">把「沉默的 80%」撈回來</h2>
+    <div style="font-size:130px;line-height:1.05;font-weight:900" class="mt-s">
+      <span class="gradient-text">+25%</span> <span style="color:var(--text-3);font-size:60px">～</span> <span class="gradient-text">+50%</span>
+    </div>
+    <p class="lede" style="margin:16px auto 0">若隔天主動發訊息，只要把流失客人救回 <b>5%～10%</b>，就能讓整體成交承接量再增加 25%～50%。<br>對應話術依「斷在哪一步」客製：點選後沒下文、要 LINE 沒給、給門診沒接，各發不同訊息。</p>
+    <div class="notes">這是給老闆的「為什麼值得投資」。目前所有主動都只發生在當下那通對話，客人隔天才想起來，系統完全沒辦法撈他。但流失母體有 6,934 段，只要救回一小部分（5%～10%），換算回成交量就是 +25%～+50%。注意這是情境假設，要用 A/B 驗證；但即使打對折也很可觀。</div>
+  </section>
+
+  <!-- 11. 前提 -->
+  <section class="slide" data-title="前提">
+    <p class="kicker">務實 · 落地前的一個前提</p>
+    <h2 class="h2">「隔天主動發訊息」有平台規則要過</h2>
+    <div class="grid g2 mt-l">
+      <div class="card bad-side" style="border-top:3px solid var(--warn)">
+        <h4>⚠️ 限制</h4>
+        <p class="dim">Facebook Messenger 規定：客人最後互動 <b>超過 24 小時</b>後，一般訊息不能直接發送。</p>
+      </div>
+      <div class="card good-side" style="border-top:3px solid var(--good)">
+        <h4>✅ 可行管道</h4>
+        <p class="dim">須改用官方允許的方式：訂閱式通知（OTN）、付費訊息，或在 24 小時內完成第一次追蹤。<b>需先確認，再開發。</b></p>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:18px">這不是「改幾行程式」就能上線——所以我們把它列為<b>平行任務</b>，與品質修正同時推進，不卡住上線時程。</p>
+    <div class="notes">這頁是負責任地告訴主管：這個機會很大，但不是免費午餐。Meta 對主動發訊息有規則，超過 24 小時要走特定管道（OTN 或付費）。我特別把它獨立出來講，是因為不想讓大家以為「下週就能隔天追蹤」。它要先做合規確認，所以排成平行軌，不擋主線。</div>
+  </section>
+
+  <!-- 12. 時程 timeline -->
+  <section class="slide" data-title="時程">
+    <p class="kicker">時程 · 什麼時候能改善（錨定 6/24）</p>
+    <h2 class="h2">兩個月內，從修品質到可上線</h2>
+    <div class="tl">
+      <div class="row anim-stagger-list" data-anim-target>
+        <div class="item"><div class="when">W1–2 · 6/24–7/7</div><div class="dot"></div><h4>修品質</h4><p>繁中輸出、預約收尾、補價格資料</p></div>
+        <div class="item gate"><div class="when">W3 · ~7/14</div><div class="dot"></div><h4>里程碑 M1</h4><p>核心品質過關，可進灰度上線</p></div>
+        <div class="item"><div class="when">W4–5 · 7/15–28</div><div class="dot"></div><h4>擴充題庫</h4><p>80–120 題全面測試</p></div>
+        <div class="item gate"><div class="when">W6 · ~8/4</div><div class="dot"></div><h4>里程碑 M2</h4><p>達上線品質門檻</p></div>
+        <div class="item"><div class="when">W7–8 · 8/5–18</div><div class="dot"></div><h4>里程碑 M3</h4><p>監控上線＋小流量 A/B 驗證</p></div>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:26px">關鍵節點：<b>約 7/14 核心品質過關</b>、<b>約 8/4 達上線門檻</b>、<b>8 月中</b>開始用真實流量驗證成效。</p>
+    <div class="notes">給主管一個明確的日曆。橘點是兩個驗收里程碑（go/no-go）。7 月中核心品質過關就能灰度上線開始接客人；8 月初達完整上線門檻；8 月中跑 A/B 看真實成效。每個里程碑都是「達標才往下」，不是時間到就硬推。</div>
+  </section>
+
+  <!-- 13. 快或慢 -->
+  <section class="slide" data-title="能多快">
+    <p class="kicker">回應 · 能不能更快？</p>
+    <h2 class="h2">哪些能壓縮、哪些壓不動</h2>
+    <div class="vs">
+      <div class="card good-side side anim-fade-left" data-anim="fade-left">
+        <h3>✅ 可壓到 1–2 週</h3>
+        <ul>
+          <li>繁中輸出修正（單點，槓桿最高）</li>
+          <li>預約收尾、多輪對話</li>
+          <li>補價格資料、重跑小測試</li>
+          <li>→ <b>核心品質過關（M1）合理</b></li>
+        </ul>
+      </div>
+      <div class="mid">vs</div>
+      <div class="card bad-side side anim-fade-right" data-anim="fade-right">
+        <h3>⛔ 壓不動</h3>
+        <ul>
+          <li>大型題庫撰寫（人工，需時間）</li>
+          <li>A/B 驗證（要累積足夠對話量）</li>
+          <li>Messenger 主動訊息（等 Meta 審核）</li>
+          <li>→ <b>受流量與外部依賴綁定</b></li>
+        </ul>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:16px">建議：先用 1–2 週衝刺把品質修到能上線，<b>提早灰度上線開始接客人</b>；完整測試與 A/B 當「邊上線邊驗證」並行補。</p>
+    <div class="notes">主管常問「能不能更快」。誠實的答案：能，但只有一半能壓。修品質這種「靠人力專注就能加速」的，1–2 週衝刺合理。但 A/B 要等對話量累積、Meta 審核要等別人——這些加班也壓不動，是物理限制。所以建議走「先上線、再驗證」，別卡在追求完美測試。</div>
+  </section>
+
+  <!-- 14. CTA -->
+  <section class="slide center tc" data-title="結論">
+    <p class="kicker">給決策者的一句話</p>
+    <h1 class="h1 anim-rise-in" data-anim="rise-in">先修品質、灰度上線，<br>把<span class="gradient-text">沉默的 80%</span>變成業績</h1>
+    <p class="lede" style="margin:18px auto 0">智能客服「會答」已經做到；下一步是「不漏接」。<br>1–2 週修品質 → 7 月中灰度上線 → 8 月開啟隔天主動追蹤，預期成交承接 +25%～+50%。</p>
+    <div class="notes">收束成一個行動呼籲。我們要的決策很簡單：批准走「先修品質、灰度上線、再開主動追蹤」這條路。會答已經做到，接下來是不漏接。時程清楚、潛在回報清楚。請主管拍板。</div>
+  </section>
+
+  <!-- 15. Thanks -->
+  <section class="slide center tc" data-title="Thanks">
+    <h1 class="h1" style="font-size:120px;line-height:1"><span class="gradient-text">謝謝</span></h1>
+    <p class="lede">Facebook 智能客服測試成效報告 · 2026-06-24</p>
+    <p class="dim2" style="margin-top:8px">資料來源：8,637 段真實對話終點分析 × 系統現況 × DeepEval 測試（數字已對照原始後台驗證）</p>
+    <div class="notes">結尾。可補一句：完整報告與所有數字的驗證腳本都已存檔，歡迎指教。按 S 可開啟演講者模式看備註。</div>
+  </section>
+
+</div>
+<script src="assets/runtime.js"></script>
+</body></html>
