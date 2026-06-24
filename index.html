@@ -58,7 +58,7 @@
     <p class="kicker">Facebook 智能客服 · 成效報告 · 2026-06-24</p>
     <h1 class="h1 anim-fade-up" data-anim="fade-up">我們的智能客服，<br>現在能<span class="gradient-text">接住多少客人</span>？</h1>
     <p class="lede">用 8,637 段真實對話，看清現況、找出最大機會、訂出可執行時程。</p>
-    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="15"></span></div>
+    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="18"></span></div>
     <div class="notes">這份報告給管理層看。一句話開場：我們不是來秀技術，是來回答一個生意問題——廣告花錢帶進來的客人，最後有多少被接住、沒接住的怎麼救、什麼時候能改善。全程用真實對話數據，不是憑感覺。</div>
   </section>
 
@@ -87,6 +87,19 @@
     </div>
     <div class="ex">✅ <b>數據可信</b>：這些數字已逐筆對照原始 Facebook 後台匯出資料，獨立重算與官方流程完全一致（總數、四個來路、各類佔比 100% 吻合），不是估計值。</div>
     <div class="notes">先建立信任：這份分析不是抽樣、不是猜的。我們拿原始 FB 後台匯出檔，自己寫程式重算一次，跟既有分析流程的結果逐一比對，完全一樣。所以後面所有結論都站得住腳。廣告回覆佔八成，是花錢買來的流量，所以它就是主戰場。</div>
+  </section>
+
+  <!-- 3b. 對話性質 / 客訴佔比 -->
+  <section class="slide" data-title="客訴佔比">
+    <p class="kicker">補充 · 換個角度看這 8,637 段</p>
+    <h2 class="h2">客訴（高風險）只佔 <span class="gradient-text">0.30%</span></h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card"><p class="eyebrow">一般諮詢</p><div style="font-size:54px;font-weight:800">98.43<span style="font-size:22px">%</span></div><p class="dim">8,501 段</p></div>
+      <div class="card"><p class="eyebrow">正面／成交傾向</p><div style="font-size:54px;font-weight:800;color:var(--good)">1.27<span style="font-size:22px">%</span></div><p class="dim">110 段</p></div>
+      <div class="card" style="border-color:var(--bad)"><p class="eyebrow">負面／客訴</p><div style="font-size:54px;font-weight:800;color:var(--bad)">0.30<span style="font-size:22px">%</span></div><p class="dim" style="color:var(--bad)">26 段</p></div>
+    </div>
+    <p class="lede" style="margin-top:20px">客訴數量極少，但涉及<b>醫療、法律、品牌風險</b>——是智能客服「<b>寧可不答、也不能答錯</b>」的最高優先：一律安撫後轉真人。</p>
+    <div class="notes">給管理層一個風險感的定位：客訴只有 26 段、0.30%，比例非常低，不是日常主流。但這 0.30% 是「不能出錯」的——醫美客訴牽涉醫療糾紛和法律，所以系統設計上不讓 AI 自由回應，固定安撫加轉真人。三類加總 8,501+110+26 剛好 8,637，和總數對得起來，數字可信。</div>
   </section>
 
   <!-- 4. 核心發現 stat -->
@@ -154,6 +167,28 @@
     <div class="notes">這頁給行銷決策一個彈藥：不是所有流量都一樣。主動私訊、留言來的客人，轉換率比廣告高 4–6 個百分點。意思是這群人本來就更想成交，只要我們別漏接。對老闆來說這是「資源配置」的訊號——別只想著加廣告，先把高意願的自然流量接好。</div>
   </section>
 
+  <!-- 7b. 架構簡圖 -->
+  <section class="slide" data-title="架構">
+    <p class="kicker">怎麼運作 · 架構簡圖</p>
+    <h2 class="h2">智能客服怎麼處理每一則訊息</h2>
+    <div class="flow anim-stagger-list" data-anim-target style="margin-top:24px">
+      <div class="node"><div class="ic">📥</div><h4>收訊 + 守門</h4><p>驗簽、去重、偵測真人是否已介入</p></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="ic">🧭</div><h4>判斷情緒+意圖</h4><p>決定走哪條路</p></div>
+      <div class="arr">→</div>
+      <div class="node"><div class="ic">📚</div><h4>知識庫 RAG</h4><p>查資料、給有依據的答案</p></div>
+      <div class="arr">→</div>
+      <div class="node win"><div class="ic">💬</div><h4>繁中 + 追問</h4><p>回覆客人</p></div>
+    </div>
+    <div class="grid g3 mt-l">
+      <div class="card bad-side" style="border-top:3px solid var(--bad);padding:16px"><h4>🛡️ 客訴／術後</h4><p class="dim" style="font-size:14px">安撫 → 不自由判斷 → 轉真人</p></div>
+      <div class="card" style="border-top:3px solid var(--warn);padding:16px"><h4>🔒 隱私查詢</h4><p class="dim" style="font-size:14px">不直接查 → 引導留資料轉專人</p></div>
+      <div class="card good-side" style="border-top:3px solid var(--good);padding:16px"><h4>🧠 一般諮詢</h4><p class="dim" style="font-size:14px">療程／價格／衛教 → RAG 自動回答</p></div>
+    </div>
+    <p class="lede" style="margin-top:16px"><b>安全守門最優先</b>，不交給模型自由發揮；<b>真人隨時可接手</b>（小編一回覆，AI 自動暫停）。</p>
+    <div class="notes">用一張圖讓非技術主管也懂運作：訊息進來先守門（含偵測真人是否已在處理），再判斷情緒和意圖，決定走三條路的哪一條，最後用繁中加追問回覆。底下三張卡是分流邏輯——客訴轉真人、隱私轉專人、一般諮詢自動答。RAG 就是「先查知識庫再回答」，所以不會亂編。</div>
+  </section>
+
   <!-- 8. 現在能做什麼 -->
   <section class="slide" data-title="現況能力">
     <p class="kicker">現況 · 智能客服已經會什麼</p>
@@ -165,6 +200,31 @@
     </div>
     <div class="ex">💡 <b>實際範例</b>　客人：「想了解皮秒雷射」→ AI：「皮秒主要針對毛孔與斑點…效果顯著。<b>｜｜｜</b>請問您之前有做過雷射保養嗎？😊」（系統自動拆成兩則、隔 1.5 秒發出關心句）</div>
     <div class="notes">先肯定現有成果，不要讓團隊覺得被否定。智能客服該會的基本功——聽懂問題、查資料回答、守住風險——都已經有了，而且有具體機制在跑。這個範例展示「主動追問」：它不是答完就停，會再丟一個問題把球給客人。這就是針對前段流失設計的，只是目前只在同一通對話內生效。</div>
+  </section>
+
+  <!-- 8b. 情境範例 -->
+  <section class="slide" data-title="情境範例">
+    <p class="kicker">實戰 · 三個情境怎麼處理</p>
+    <h2 class="h2">客訴、預約、衛教，各走不同路</h2>
+    <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
+      <div class="card bad-side" style="border-top:3px solid var(--bad)">
+        <h4>🛡️ 客訴（高風險）</h4>
+        <p class="dim" style="font-size:14px;line-height:1.7"><b>客人：</b>你們把我臉做壞了，我要求賠償！<br><b>AI：</b>非常抱歉讓您有不愉快的體驗，我們很重視您的感受😔 立即為您安排專責人員。</p>
+        <p class="dim" style="font-size:12px;color:var(--bad);margin-top:6px">→ 不做醫療/法律判斷，安撫後轉真人</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--accent-2)">
+        <h4>📅 預約</h4>
+        <p class="dim" style="font-size:14px;line-height:1.7"><b>客人：</b>我想約這週五看診<br><b>AI：</b>好的～方便提供姓名／電話／想了解的療程／方便時段嗎？<br>（中途問價 → 先回價格，再回來收欄位）</p>
+        <p class="dim" style="font-size:12px;color:var(--accent-2);margin-top:6px">→ 收齊資料，產生交接摘要給專員</p>
+      </div>
+      <div class="card good-side" style="border-top:3px solid var(--good)">
+        <h4>🧠 衛教／療程</h4>
+        <p class="dim" style="font-size:14px;line-height:1.7"><b>客人：</b>想了解皮秒雷射<br><b>AI：</b>皮秒主要針對毛孔與斑點…效果顯著。<b>｜｜｜</b>請問您之前有做過雷射保養嗎？😊</p>
+        <p class="dim" style="font-size:12px;color:var(--good);margin-top:6px">→ RAG 衛教 + 追問，或分享衛教影片</p>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:18px">同一套系統，依「<b>情緒 + 意圖</b>」自動分流：高風險轉真人、一般諮詢自動答、預約收資料——這就是它的日常運作。</p>
+    <div class="notes">這頁把抽象能力變成具體畫面。三個最常見情境各給一段對話：客訴（轉真人、不亂答）、預約（收欄位、插問先答再回）、衛教（查知識庫回答加追問）。重點是「同一套系統會自動判斷該走哪條路」，不是寫死的單一流程。話術都依現有人設，屬說明性示例。</div>
   </section>
 
   <!-- 9. 測試成績單 -->
