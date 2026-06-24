@@ -58,7 +58,7 @@
     <p class="kicker">Facebook 智能客服 · 成效報告 · 2026-06-24</p>
     <h1 class="h1 anim-fade-up" data-anim="fade-up">我們的智能客服，<br>現在能<span class="gradient-text">接住多少客人</span>？</h1>
     <p class="lede">用 8,637 段真實對話，看清現況、找出最大機會、訂出可執行時程。</p>
-    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="18"></span></div>
+    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="20"></span></div>
     <div class="notes">這份報告給管理層看。一句話開場：我們不是來秀技術，是來回答一個生意問題——廣告花錢帶進來的客人，最後有多少被接住、沒接住的怎麼救、什麼時候能改善。全程用真實對話數據，不是憑感覺。</div>
   </section>
 
@@ -183,7 +183,7 @@
     <div class="grid g3 mt-l">
       <div class="card bad-side" style="border-top:3px solid var(--bad);padding:16px"><h4>🛡️ 客訴／術後</h4><p class="dim" style="font-size:14px">安撫 → 不自由判斷 → 轉真人</p></div>
       <div class="card" style="border-top:3px solid var(--warn);padding:16px"><h4>🔒 隱私查詢</h4><p class="dim" style="font-size:14px">不直接查 → 引導留資料轉專人</p></div>
-      <div class="card good-side" style="border-top:3px solid var(--good);padding:16px"><h4>🧠 一般諮詢</h4><p class="dim" style="font-size:14px">療程／價格／衛教 → RAG 自動回答</p></div>
+      <div class="card good-side" style="border-top:3px solid var(--good);padding:16px"><h4>🧠 療程／衛教</h4><p class="dim" style="font-size:14px">RAG 自動回答；<b>問價 → 不報價、引導諮詢</b></p></div>
     </div>
     <p class="lede" style="margin-top:16px"><b>安全守門最優先</b>，不交給模型自由發揮；<b>真人隨時可接手</b>（小編一回覆，AI 自動暫停）。</p>
     <div class="notes">用一張圖讓非技術主管也懂運作：訊息進來先守門（含偵測真人是否已在處理），再判斷情緒和意圖，決定走三條路的哪一條，最後用繁中加追問回覆。底下三張卡是分流邏輯——客訴轉真人、隱私轉專人、一般諮詢自動答。RAG 就是「先查知識庫再回答」，所以不會亂編。</div>
@@ -194,7 +194,7 @@
     <p class="kicker">現況 · 智能客服已經會什麼</p>
     <h2 class="h2">它現在「聽得懂、答得準、守得住」</h2>
     <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
-      <div class="card"><h4>🧠 聽得懂 + 答得準</h4><p class="dim">能辨識療程、價格、地點等問題，從知識庫找答案回覆，全程繁體中文。</p></div>
+      <div class="card"><h4>🧠 聽得懂 + 答得準</h4><p class="dim">能辨識療程、地點等問題，從知識庫找答案回覆，全程繁體中文。<b>（價格一律不線上報價、改引導諮詢）</b></p></div>
       <div class="card"><h4>💬 會主動追問</h4><p class="dim">回答後自動補一句關心，把話題接回客人，降低「答完就斷」。</p></div>
       <div class="card"><h4>🛡️ 守得住風險</h4><p class="dim">遇到客訴、術後、隱私查詢，自動安撫並轉真人；真人接手時 AI 自動讓位。</p></div>
     </div>
@@ -214,7 +214,7 @@
       </div>
       <div class="card" style="border-top:3px solid var(--accent-2)">
         <h4>📅 預約</h4>
-        <p class="dim" style="font-size:14px;line-height:1.7"><b>客人：</b>我想約這週五看診<br><b>AI：</b>好的～方便提供姓名／電話／想了解的療程／方便時段嗎？<br>（中途問價 → 先回價格，再回來收欄位）</p>
+        <p class="dim" style="font-size:14px;line-height:1.7"><b>客人：</b>我想約這週五看診<br><b>AI：</b>好的～方便提供姓名／電話／想了解的療程／方便時段嗎？<br>（中途問價 → <b>不報價</b>、說明需評估，再回來收欄位）</p>
         <p class="dim" style="font-size:12px;color:var(--accent-2);margin-top:6px">→ 收齊資料，產生交接摘要給專員</p>
       </div>
       <div class="card good-side" style="border-top:3px solid var(--good)">
@@ -225,6 +225,34 @@
     </div>
     <p class="lede" style="margin-top:18px">同一套系統，依「<b>情緒 + 意圖</b>」自動分流：高風險轉真人、一般諮詢自動答、預約收資料——這就是它的日常運作。</p>
     <div class="notes">這頁把抽象能力變成具體畫面。三個最常見情境各給一段對話：客訴（轉真人、不亂答）、預約（收欄位、插問先答再回）、衛教（查知識庫回答加追問）。重點是「同一套系統會自動判斷該走哪條路」，不是寫死的單一流程。話術都依現有人設，屬說明性示例。</div>
+  </section>
+
+  <!-- 8c. 覆蓋率 -->
+  <section class="slide" data-title="覆蓋率">
+    <p class="kicker">覆蓋率 · 為何少數情境能覆蓋大量流程</p>
+    <h2 class="h2">路徑千變萬化，但「意圖」會收斂</h2>
+    <p class="lede" style="margin-top:10px">真實對話流程變量很多——平均每段 <b>14 則訊息</b>、解析出 <b>30+ 種狀態</b>、<b>38%</b> 是多行接續。但客人「想做的事」其實只有幾類。</p>
+    <div class="grid g2 mt-l anim-stagger-list" data-anim-target>
+      <div class="card"><p class="eyebrow">保守覆蓋（第一句就明確）</p><div style="font-size:64px;font-weight:800">81.59<span style="font-size:26px">%</span></div><p class="dim">7,047 / 8,637 段有對應處理路徑</p></div>
+      <div class="card" style="border-color:var(--accent)"><p class="eyebrow">實際覆蓋（含多輪救回）</p><div style="font-size:64px;font-weight:800;color:var(--accent)">90.80<span style="font-size:26px">%</span></div><p class="dim" style="color:var(--good)">自由文字中 59.6% 整段在談療程，可救回</p></div>
+    </div>
+    <p class="lede" style="margin-top:18px">關鍵：系統按「<b>每則訊息的情緒＋意圖</b>」動態分流，不是寫死單一流程——同一意圖不管客人怎麼講，都導到同一條路。這就是少數情境能吸收大量路徑變化的原因。</p>
+    <div class="notes">這頁直接回答「流程那麼多變，怎麼可能覆蓋」。答案：覆蓋是看意圖、不是看路徑。路徑會發散，意圖會收斂。系統每一則訊息都重判意圖再分流，所以路徑變化被吸收掉。兩個數字：保守 81.6%（只看第一句），實際 90.8%（把自由文字裡其實在談療程的算回，因為其中 59.6% 整段帶療程標籤）。都可從 8,637 段重算。</div>
+  </section>
+
+  <!-- 8d. Edge Cases + 可量化/不可量化 -->
+  <section class="slide" data-title="EdgeCases">
+    <p class="kicker">Edge Cases · 接不住的長尾（誠實說明）</p>
+    <h2 class="h2">真 Edge ≈ <span class="gradient-text">9.2%</span>，量化與不可量化分清楚</h2>
+    <div class="grid g2 mt-l">
+      <div class="card bad-side" style="border-top:3px solid var(--bad)"><h4>⛔ 硬 Edge：無客戶訊息</h4><p class="dim"><b>257 段（2.98%）</b><br>私訊串無客戶內容，<b>無意圖可判</b>（多為貼文留言入口的資料特性）。確定接不住。</p></div>
+      <div class="card" style="border-top:3px solid var(--warn)"><h4>⚠️ 軟 Edge：自由文字無脈絡</h4><p class="dim"><b>538 段（6.23%）</b><br>模糊短句、貼圖、符號、離題，<b>需澄清或可能誤判</b>。能救回多少需上線驗證。</p></div>
+    </div>
+    <div class="grid g2 mt-l">
+      <div class="card good-side" style="border-top:3px solid var(--good);padding:16px"><h4>✅ 可量化（從資料算出）</h4><p class="dim" style="font-size:14px">覆蓋率 81.6%／90.8%、各意圖佔比、Edge 9.2%–18.4%、客訴 0.30%、流失 80.28%、DeepEval 分數</p></div>
+      <div class="card" style="border-top:3px solid var(--text-3);padding:16px"><h4>❓ 不可量化（需上線/抽樣）</h4><p class="dim" style="font-size:14px">軟 Edge 真正救回率、線上意圖誤判率、隱晦表達（QR圖/暗示）漏判率、轉真人後真實成交率</p></div>
+    </div>
+    <div class="notes">誠實面對長尾。真 Edge 約 9.2%：硬 Edge（無訊息 3%）是確定接不住的；軟 Edge（自由文字無脈絡 6%）能救回多少屬不可量化、要上線才知道。最後把可量化和不可量化攤開講清楚——覆蓋率、佔比、分數都是算得出來的；但意圖誤判率、隱晦表達漏判、轉真人後成交，這些只能上線或人工抽樣才知道，不誇大。</div>
   </section>
 
   <!-- 9. 測試成績單 -->
@@ -244,7 +272,7 @@
         <p class="dim" style="line-height:1.9">
         <span class="chip mid">預約收尾 0.72</span>　目標 0.80<br>
         <span class="chip no">繁體中文輸出</span>　內部標記漏到客人眼前<br>
-        <span class="chip mid">資料檢索精準 0.74</span>　價格類證據需補強</p>
+        <span class="chip mid">療程檢索精準 0.74</span>　療程知識證據待補（價格 RAG 已移除）</p>
       </div>
     </div>
     <p class="lede" style="margin-top:18px">白話：<b>會答、答得對、不唬爛</b>——這些難的都做到了；剩下的是<b>「把話講乾淨、把預約收尾、把價格資料補齊」</b>這類收尾工。</p>
@@ -280,7 +308,7 @@
     <h2 class="h2">智能客服「現在就能 cover」的流程</h2>
     <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
       <div class="card"><h4>🧠 療程／困擾探索</h4><p class="dim">廣告回覆 83% 的主任務。辨識療程部位、釐清困擾、衛教、導向評估。<br><span class="chip ok">✅ 可 cover</span></p></div>
-      <div class="card"><h4>💰 問價／價格評估</h4><p class="dim">問價節點 2,381 段。RAG 回價格範圍與計價邏輯。<br><span class="chip mid">⚠️ 價格資料待補</span></p></div>
+      <div class="card"><h4>💰 問價</h4><p class="dim">問價節點 2,381 段。<b>一律不線上報價</b>，說明需個人評估、引導預約諮詢。<br><span class="chip ok">✅ 刻意設計（不走 RAG）</span></p></div>
       <div class="card"><h4>💬 同一輪即時追問</h4><p class="dim">答完補一句關懷，把球丟回客人。<br><span class="chip ok">✅ 可 cover</span></p></div>
       <div class="card"><h4>📞 收聯絡／轉私域</h4><p class="dim">客服要求聯絡 2,500 段。順勢收資料、產生交接摘要。<br><span class="chip ok">✅ 可 cover</span></p></div>
       <div class="card"><h4>📅 預約資料收集</h4><p class="dim">收缺漏欄位，插問先答再回。<br><span class="chip mid">⚠️ 收尾待達標</span></p></div>
@@ -296,7 +324,7 @@
     <h2 class="h2">兩個月內，從修品質到可上線</h2>
     <div class="tl">
       <div class="row anim-stagger-list" data-anim-target>
-        <div class="item"><div class="when">W1–2 · 6/24–7/7</div><div class="dot"></div><h4>修品質</h4><p>繁中輸出、預約收尾、補價格資料</p></div>
+        <div class="item"><div class="when">W1–2 · 6/24–7/7</div><div class="dot"></div><h4>修品質</h4><p>繁中輸出、預約收尾、補療程知識（價格 RAG 已移除）</p></div>
         <div class="item gate"><div class="when">W3 · ~7/14</div><div class="dot"></div><h4>里程碑 M1</h4><p>核心品質過關，可進灰度上線</p></div>
         <div class="item"><div class="when">W4–5 · 7/15–28</div><div class="dot"></div><h4>擴充題庫</h4><p>80–120 題全面測試</p></div>
         <div class="item gate"><div class="when">W6 · ~8/4</div><div class="dot"></div><h4>里程碑 M2</h4><p>達上線品質門檻</p></div>
@@ -317,7 +345,7 @@
         <ul>
           <li>繁中輸出修正（單點，槓桿最高）</li>
           <li>預約收尾、多輪對話</li>
-          <li>補價格資料、重跑小測試</li>
+          <li>補療程知識、重跑小測試</li>
           <li>→ <b>核心品質過關（M1）合理</b></li>
         </ul>
       </div>
