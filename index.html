@@ -58,7 +58,7 @@
     <p class="kicker">Facebook 智能客服 · 成效報告 · 2026-06-24</p>
     <h1 class="h1 anim-fade-up" data-anim="fade-up">我們的智能客服，<br>現在能<span class="gradient-text">接住多少客人</span>？</h1>
     <p class="lede">用 8,637 段真實對話，看清現況、找出最大機會、訂出可執行時程。</p>
-    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="22"></span></div>
+    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="23"></span></div>
     <div class="notes">這份報告給管理層看。一句話開場：我們不是來秀技術，是來回答一個生意問題——廣告花錢帶進來的客人，最後有多少被接住、沒接住的怎麼救、什麼時候能改善。全程用真實對話數據，不是憑感覺。</div>
   </section>
 
@@ -413,6 +413,26 @@
     <h1 class="h1 anim-rise-in" data-anim="rise-in">修好品質、灰度上線，<br>把<span class="gradient-text">對話視窗內</span>的客人接好</h1>
     <p class="lede" style="margin:18px auto 0">智能客服「會答」已經做到；下一步是在客人還在線上時「不漏接」。<br>1–2 週修品質 → 約 7 月中灰度上線 → 8 月達上線門檻。<br><span class="dim2">（已斷掉的對話受平台限制無法 bot 主動撈回，不列入規劃。）</span></p>
     <div class="notes">收束成行動呼籲。決策很簡單：批准走「先修品質、灰度上線」這條路，把智能客服用在它能發揮的範圍——客人還在對話的當下。誠實說明跨日撈回是平台限制做不到，不畫大餅。時程清楚，請主管拍板。</div>
+  </section>
+
+  <!-- 14b. 題庫 + AI 評分（白話補充） -->
+  <section class="slide" data-title="題庫與評分">
+    <p class="kicker">補充 · 報告裡的分數從哪來</p>
+    <h2 class="h2">題庫 ＝ 模擬考考卷，分數 ＝ <span class="gradient-text">AI 改考卷</span></h2>
+    <div class="grid g2 mt-l">
+      <div class="card">
+        <h4>📝 題庫 ＝ 給客服的模擬考</h4>
+        <p class="dim" style="font-size:14px">一批標準考題（情境＋標準答案）。目前 <b>25 題</b>，分 5 類：</p>
+        <p class="dim" style="font-size:13px;line-height:1.9">問價 7 ｜ 預約 6 ｜ 醫療安全 5 ｜ 轉真人 4 ｜ 多輪 3<br><span style="color:var(--warn)">計畫擴充到 80–120 題才做正式上線驗收</span></p>
+      </div>
+      <div class="card" style="border-color:var(--accent-2)">
+        <h4>🧑‍🏫 評分 ＝ 另一個 AI 當改考老師</h4>
+        <p class="dim" style="font-size:14px">用獨立的評審 AI（gpt-4o-mini，刻意跟客服模型分開，避免自己改自己）。</p>
+        <p class="dim" style="font-size:13px;line-height:1.7">讀「客人問題＋客服回答＋評分標準」→ 給 0–1 分＋理由 → 比及格線。題目要常重考，AI 改快又能重複。</p>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:16px"><b>老實說：</b>AI 評分不是 100% 準、也會被雜訊干擾（所以繁中那項曾被誤判）。它適合<b>抓問題、比版本、回歸把關</b>，最後仍要<b>人工抽幾題核對</b>。</p>
+    <div class="notes">用白話收尾解釋報告裡那一堆分數（0.98、0.74）是怎麼來的。比喻：題庫是模擬考考卷（25 題、5 類，會擴到 80–120），分數是「另一個 AI 當改考老師」打的（這就是 LLM-as-judge），刻意用不同模型避免自己改自己。誠實說明 AI 改考卷不是絕對準，適合把關和比較，最後要人抽查。讓非技術主管也聽得懂「品質是怎麼驗的」。</div>
   </section>
 
   <!-- 15. Thanks -->
