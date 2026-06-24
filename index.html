@@ -58,7 +58,7 @@
     <p class="kicker">Facebook 智能客服 · 成效報告 · 2026-06-24</p>
     <h1 class="h1 anim-fade-up" data-anim="fade-up">我們的智能客服，<br>現在能<span class="gradient-text">接住多少客人</span>？</h1>
     <p class="lede">用 8,637 段真實對話，看清現況、找出最大機會、訂出可執行時程。</p>
-    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="21"></span></div>
+    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="22"></span></div>
     <div class="notes">這份報告給管理層看。一句話開場：我們不是來秀技術，是來回答一個生意問題——廣告花錢帶進來的客人，最後有多少被接住、沒接住的怎麼救、什麼時候能改善。全程用真實對話數據，不是憑感覺。</div>
   </section>
 
@@ -259,6 +259,28 @@
     </div>
     <p class="lede" style="margin-top:16px"><b>為何 LLM 做得到：</b>它理解的是「意思」不是字面，連沒見過的講法也能判——這正是能吸收「流程變量很多」的根本。<span class="dim2">（但非 100% 準，高風險才用關鍵字硬規則兜底。）</span></p>
     <div class="notes">這頁回答「意圖怎麼收斂、為什麼能」。核心：客人講法無限，但系統只認 7 類固定意圖標籤，每類一條路。怎麼對應？主力是 LLM 讀語意——「會痛嗎/埋線安全嗎/恢復多久」字面全不同，但意思都是想了解療程，LLM 能對到同一類，這是舊式關鍵字做不到的。再用關鍵字快速通道兜高風險、LLM 複核、快取、fallback 保穩定。誠實說：LLM 不是 100%，所以客訴/威脅/隱私不完全靠它。</div>
+  </section>
+
+  <!-- 8c-3. 意圖→處理→轉人工 -->
+  <section class="slide" data-title="意圖→處理">
+    <p class="kicker">分流 · 7 類意圖判定後怎麼處理、何時轉真人</p>
+    <h2 class="h2">每類意圖各走一條路，<span class="gradient-text">高風險一律轉真人</span></h2>
+    <div class="card mt-l" style="padding:4px 16px">
+    <table class="t">
+      <thead><tr><th>意圖</th><th>系統怎麼做</th><th>何時轉真人</th></tr></thead>
+      <tbody>
+        <tr><td>🧠 療程／衛教</td><td>RAG 查知識庫回答 + 智能追問</td><td class="dim">一般不轉</td></tr>
+        <tr><td>💰 問價</td><td><b>不報價</b>，說明需評估、引導諮詢</td><td class="dim">不自動轉</td></tr>
+        <tr><td>📅 預約</td><td>進預約流程收姓名/電話/療程/時段</td><td class="good">收齊 → 交接專員</td></tr>
+        <tr><td>🩹 術後／客訴</td><td>跳過 RAG、安全檢傷、安撫</td><td class="bad">緊急症狀 → 立即轉</td></tr>
+        <tr><td>🔒 隱私查詢</td><td>不查個資，引導留姓名+電話</td><td class="bad">轉專人確認</td></tr>
+        <tr><td>💬 閒聊</td><td>小聊回應（繞過 RAG）、導回諮詢</td><td class="dim">不轉</td></tr>
+        <tr><td>❔ 其他</td><td>標準 RAG / fallback</td><td class="dim">視情況</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="lede" style="margin-top:14px"><b>另有「不靠 LLM」的硬性轉真人：</b>付款/匯款/發票、法律威脅（告/媒體/賠償）、極度憤怒（安撫 3 次無效→轉主管）、真人小編一介入 AI 自動暫停。</p>
+    <div class="notes">這頁把 7 類意圖的後續處理和轉真人時機一次講清。重點兩個：一是每類意圖各有對應路徑（不是一套流程打天下）；二是高風險（術後緊急、隱私、付款、法律、極度憤怒）一律從嚴轉真人，不交給模型自由判斷。這些硬性轉真人是用關鍵字規則兜底、優先於 LLM，確保不漏接。</div>
   </section>
 
   <!-- 8d. Edge Cases + 可量化/不可量化 -->
