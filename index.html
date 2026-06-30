@@ -89,17 +89,18 @@
     <div class="notes">先建立信任：這份分析不是抽樣、不是猜的。我們拿原始 FB 後台匯出檔，自己寫程式重算一次，跟既有分析流程的結果逐一比對，完全一樣。所以後面所有結論都站得住腳。廣告回覆佔八成，是花錢買來的流量，所以它就是主戰場。</div>
   </section>
 
-  <!-- 3b. 對話性質 / 客訴佔比 -->
+  <!-- 3b. 對話性質 / 客訴佔比（已複核重測） -->
   <section class="slide" data-title="客訴佔比">
-    <p class="kicker">補充 · 換個角度看這 8,637 段</p>
-    <h2 class="h2">客訴（高風險）只佔 <span class="gradient-text">0.30%</span></h2>
+    <p class="kicker">補充 · 客訴比例（已重新複核）</p>
+    <h2 class="h2">真實客訴極少：<span class="gradient-text">約 0.1–0.2%</span></h2>
     <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
-      <div class="card"><p class="eyebrow">一般諮詢</p><div style="font-size:54px;font-weight:800">98.43<span style="font-size:22px">%</span></div><p class="dim">8,501 段</p></div>
-      <div class="card"><p class="eyebrow">正面／成交傾向</p><div style="font-size:54px;font-weight:800;color:var(--good)">1.27<span style="font-size:22px">%</span></div><p class="dim">110 段</p></div>
-      <div class="card" style="border-color:var(--bad)"><p class="eyebrow">負面／客訴</p><div style="font-size:54px;font-weight:800;color:var(--bad)">0.30<span style="font-size:22px">%</span></div><p class="dim" style="color:var(--bad)">26 段</p></div>
+      <div class="card"><p class="eyebrow">規則偵測候選（上限）</p><div style="font-size:50px;font-weight:800">0.60<span style="font-size:20px">%</span></div><p class="dim">52 段，含大量誤判</p></div>
+      <div class="card" style="border-color:var(--accent)"><p class="eyebrow">人工覆核真客訴</p><div style="font-size:50px;font-weight:800;color:var(--accent)">~0.12<span style="font-size:20px">%</span></div><p class="dim" style="color:var(--good)">約 10 段</p></div>
+      <div class="card"><p class="eyebrow">針對本院的客訴</p><div style="font-size:50px;font-weight:800;color:var(--good)">近 0</div><p class="dim" style="color:var(--good)">多為他院修復需求</p></div>
     </div>
-    <p class="lede" style="margin-top:20px">客訴數量極少，但涉及<b>醫療、法律、品牌風險</b>——是智能客服「<b>寧可不答、也不能答錯</b>」的最高優先：一律安撫後轉真人。</p>
-    <div class="notes">給管理層一個風險感的定位：客訴只有 26 段、0.30%，比例非常低，不是日常主流。但這 0.30% 是「不能出錯」的——醫美客訴牽涉醫療糾紛和法律，所以系統設計上不讓 AI 自由回應，固定安撫加轉真人。三類加總 8,501+110+26 剛好 8,637，和總數對得起來，數字可信。</div>
+    <p class="lede" style="margin-top:18px">真客訴遠低於坊間想像，且<b>絕大多數是「別家做壞、來本院求修復」</b>——反而是信任訊號。客訴雖少，仍是<b>「寧可不答、不能答錯」</b>的最高優先：一律安撫後轉真人。</p>
+    <div class="ex">⚠️ <b>數據誠實聲明</b>：早期報告曾標「客訴 0.30%（26 段）」，複核發現該標籤是<b>資料尾端整批貼標的產物（非全量分類）</b>，已不採用。本頁為全 8,637 段「規則偵測＋人工覆核」後的重測結果（腳本可重跑）。</div>
+    <div class="notes">這頁是修正後的誠實版本。原本「客訴 0.30%、26 段」是錯的：那 26 個 negative_complaints 標籤是資料集尾端 #8502–8527 連續整批貼上的，前 8,501 段根本沒分類，所以不是有效佔比。重測方式：對全量只看客戶訊息跑規則偵測得 52 筆候選（0.60% 上限），我逐筆人工覆核後真客訴約 10 筆（≈0.12%）；而且幾乎都是抱怨別家、來本院求修復，針對本院的近乎 0。結論方向沒變（客訴極少、高風險要轉真人），但數字現在站得住腳，且多為他院修復需求反而是正面訊號。</div>
   </section>
 
   <!-- 4. 核心發現 stat -->
