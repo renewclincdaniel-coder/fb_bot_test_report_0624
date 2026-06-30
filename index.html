@@ -58,7 +58,7 @@
     <p class="kicker">Facebook 智能客服 · 成效報告 · 2026-06-30</p>
     <h1 class="h1 anim-fade-up" data-anim="fade-up">我們的智能客服，<br>現在能<span class="gradient-text">接住多少客人</span>？</h1>
     <p class="lede">用 8,637 段真實對話，看清現況、找出最大機會、訂出可執行時程。</p>
-    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="25"></span></div>
+    <div class="deck-footer"><span class="dim2">資料分析團隊</span><span class="slide-number" data-current="1" data-total="26"></span></div>
     <div class="notes">這份報告給管理層看。一句話開場：我們不是來秀技術，是來回答一個生意問題——廣告花錢帶進來的客人，最後有多少被接住、沒接住的怎麼救、什麼時候能改善。全程用真實對話數據，不是憑感覺。</div>
   </section>
 
@@ -342,6 +342,30 @@
       <div class="card" style="border-top:3px solid var(--text-3);padding:16px"><h4>❓ 不可量化（需上線/抽樣）</h4><p class="dim" style="font-size:14px">軟 Edge 真正救回率、線上意圖誤判率、隱晦表達（QR圖/暗示）漏判率、轉真人後真實成交率</p></div>
     </div>
     <div class="notes">誠實面對長尾。真 Edge 約 9.2%：硬 Edge（無訊息 3%）是確定接不住的；軟 Edge（自由文字無脈絡 6%）能救回多少屬不可量化、要上線才知道。最後把可量化和不可量化攤開講清楚——覆蓋率、佔比、分數都是算得出來的；但意圖誤判率、隱晦表達漏判、轉真人後成交，這些只能上線或人工抽樣才知道，不誇大。</div>
+  </section>
+
+  <!-- 8e. 雙軌測試 -->
+  <section class="slide" data-title="雙軌測試">
+    <p class="kicker">測試方法 · 兩條軌道互補</p>
+    <h2 class="h2">我們怎麼測：<span class="gradient-text">自動化品質</span> ＋ <span class="gradient-text">真人端到端</span></h2>
+    <div class="grid g2 mt-l">
+      <div class="card good-side" style="border-top:3px solid var(--good)">
+        <h4>🤖 DeepEval（自動化）</h4>
+        <p class="dim" style="font-size:14px;line-height:1.7"><b>測什麼：</b>回覆「品質」好不好<br>
+        <b>怎麼測：</b>黃金題庫 → 真 agent 作答 → 獨立 AI 評審打分（gpt-4o-mini，與客服模型分離）<br>
+        <b>特性：</b>不碰 FB、離線、可重複、規模化把關</p>
+        <p style="font-size:12px;margin-top:6px"><span class="chip ok">證據：90 項過 86（95.6%）</span></p>
+      </div>
+      <div class="card bad-side" style="border-top:3px solid var(--accent-2)">
+        <h4>🧑‍💻 真人 VM 端到端</h4>
+        <p class="dim" style="font-size:14px;line-height:1.7"><b>測什麼：</b>整條「生產管線」通不通<br>
+        <b>怎麼測：</b>真人從 Messenger 發訊 → VM 收 webhook → 緩衝去重 → 處理回覆<br>
+        <b>證據（VM log）：</b>webhook <b>200 OK</b>、<b>1.5s 緩衝</b>啟動、<b>197 筆 /health 200</b>（服務全程穩定在線）</p>
+        <p style="font-size:12px;margin-top:6px"><span class="chip mid">真實環境整合驗證</span></p>
+      </div>
+    </div>
+    <div class="ex">🔎 <b>真人測試的不可取代性</b>：VM log 抓到 <b>typing_on FAILED</b>（打字中指示器發送失敗）——這種<b>真實環境的整合問題，DeepEval 完全測不到</b>，因為它不經過 Facebook。兩軌缺一不可：一個測「答得好不好」，一個測「整條路通不通」。</div>
+    <div class="notes">這頁講「我們怎麼測」，建立後面成績單的可信度。兩條軌道：DeepEval 自動化測回覆品質（離線、規模化、可重複，這就是 90 過 86 的來源）；真人 VM 端到端測整條生產管線（真人從 Messenger 發訊，VM log 顯示 webhook 200、1.5 秒緩衝啟動、health 全程 200 服務穩定）。最關鍵：真人測試抓到 typing_on FAILED 這種 DeepEval 測不到的真實環境整合問題，證明兩軌互補。誠實說：目前這份 VM log 偏舊（5 月初）、樣本小（3 則）、且只看得到收訊與處理啟動，建議後續再撈一份近期、含 AI 回覆內容的對話 log 補強。</div>
   </section>
 
   <!-- 9. 測試成績單（6/30 最新實測） -->
