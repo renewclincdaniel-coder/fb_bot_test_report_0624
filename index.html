@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-Hant" data-theme="aurora">
+<html lang="zh-Hant" data-theme="corporate-clean">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Facebook 智能客服 · 測試成效與下一步（2026-06-30）</title>
 <link rel="stylesheet" href="assets/fonts.css">
 <link rel="stylesheet" href="assets/base.css">
-<link rel="stylesheet" id="theme-link" href="assets/themes/aurora.css">
+<link rel="stylesheet" id="theme-link" href="assets/themes/corporate-clean.css">
 <link rel="stylesheet" href="assets/animations/animations.css">
 <style>
   /* 漏斗 */
@@ -50,7 +50,7 @@
   .ex b{color:var(--text-1)}
 </style>
 </head>
-<body data-themes="aurora,tokyo-night,corporate-clean,minimal-white,xiaohongshu-white" data-theme-base="assets/themes/">
+<body data-themes="corporate-clean,minimal-white,aurora,tokyo-night,xiaohongshu-white" data-theme-base="assets/themes/">
 <div class="deck">
 
   <!-- 1. Cover -->
@@ -92,7 +92,7 @@
   <!-- 3b. 對話性質 / 客訴佔比（已複核重測） -->
   <section class="slide" data-title="客訴佔比">
     <p class="kicker">補充 · 客訴比例（已重新複核）</p>
-    <h2 class="h2">真實客訴極少：<span class="gradient-text">約 0.1–0.2%</span></h2>
+    <h2 class="h2">真實客訴極少：<span style="color:var(--accent-2)">約 0.1–0.2%</span></h2>
     <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
       <div class="card"><p class="eyebrow">規則偵測候選（上限）</p><div style="font-size:50px;font-weight:800">0.60<span style="font-size:20px">%</span></div><p class="dim">52 段，含大量誤判</p></div>
       <div class="card" style="border-color:var(--accent)"><p class="eyebrow">人工覆核真客訴</p><div style="font-size:50px;font-weight:800;color:var(--accent)">~0.12<span style="font-size:20px">%</span></div><p class="dim" style="color:var(--good)">約 10 段</p></div>
@@ -244,7 +244,7 @@
   <!-- 8c-2. 意圖如何收斂 -->
   <section class="slide" data-title="意圖收斂">
     <p class="kicker">原理 · 意圖怎麼「收斂」、為何做得到</p>
-    <h2 class="h2">一萬種講法 → 收斂成 <span class="gradient-text">7 類意圖</span></h2>
+    <h2 class="h2">一萬種講法 → 收斂成 <span style="color:var(--accent-2)">7 類意圖</span></h2>
     <div class="flow anim-stagger-list" data-anim-target style="margin-top:22px">
       <div class="node"><div class="ic">💬</div><h4>客人各種講法</h4><p>「會痛嗎」「埋線安全嗎」<br>「恢復多久」「會留疤嗎」</p></div>
       <div class="arr">→</div>
@@ -311,7 +311,7 @@
   <!-- 8c-3. 意圖→處理→轉人工 -->
   <section class="slide" data-title="意圖→處理">
     <p class="kicker">分流 · 7 類意圖判定後怎麼處理、何時轉真人</p>
-    <h2 class="h2">每類意圖各走一條路，<span class="gradient-text">高風險一律轉真人</span></h2>
+    <h2 class="h2">每類意圖各走一條路，<span style="color:var(--accent-2)">高風險一律轉真人</span></h2>
     <div class="card mt-l" style="padding:4px 16px">
     <table class="t">
       <thead><tr><th>意圖</th><th>系統怎麼做</th><th>何時轉真人</th></tr></thead>
@@ -333,13 +333,13 @@
   <!-- 8d. Edge Cases + 可量化/不可量化 -->
   <section class="slide" data-title="EdgeCases">
     <p class="kicker">Edge Cases · 接不住的長尾（誠實說明）</p>
-    <h2 class="h2">真 Edge ≈ <span class="gradient-text">9.2%</span>，量化與不可量化分清楚</h2>
+    <h2 class="h2">真 Edge ≈ <span style="color:var(--accent-2)">9.2%</span>，量化與不可量化分清楚</h2>
     <div class="grid g2 mt-l">
       <div class="card bad-side" style="border-top:3px solid var(--bad)"><h4>⛔ 硬 Edge：無客戶訊息</h4><p class="dim"><b>257 段（2.98%）</b><br>私訊串無客戶內容，<b>無意圖可判</b>（多為貼文留言入口的資料特性）。確定接不住。</p></div>
       <div class="card" style="border-top:3px solid var(--warn)"><h4>⚠️ 軟 Edge：自由文字無脈絡</h4><p class="dim"><b>538 段（6.23%）</b><br>模糊短句、貼圖、符號、離題，<b>需澄清或可能誤判</b>。能救回多少需上線驗證。</p></div>
     </div>
     <div class="grid g2 mt-l">
-      <div class="card good-side" style="border-top:3px solid var(--good);padding:16px"><h4>✅ 可量化（從資料算出）</h4><p class="dim" style="font-size:14px">覆蓋率 81.6%／90.8%、各意圖佔比、Edge 9.2%–18.4%、客訴 0.30%、流失 80.28%、DeepEval 分數</p></div>
+      <div class="card good-side" style="border-top:3px solid var(--good);padding:16px"><h4>✅ 可量化（從資料算出）</h4><p class="dim" style="font-size:14px">覆蓋率 81.6%／90.8%、各意圖佔比、Edge 9.2%–18.4%、客訴 ~0.12%、流失 80.28%、DeepEval 分數</p></div>
       <div class="card" style="border-top:3px solid var(--text-3);padding:16px"><h4>❓ 不可量化（需上線/抽樣）</h4><p class="dim" style="font-size:14px">軟 Edge 真正救回率、線上意圖誤判率、隱晦表達（QR圖/暗示）漏判率、轉真人後真實成交率</p></div>
     </div>
     <div class="notes">誠實面對長尾。真 Edge 約 9.2%：硬 Edge（無訊息 3%）是確定接不住的；軟 Edge（自由文字無脈絡 6%）能救回多少屬不可量化、要上線才知道。最後把可量化和不可量化攤開講清楚——覆蓋率、佔比、分數都是算得出來的；但意圖誤判率、隱晦表達漏判、轉真人後成交，這些只能上線或人工抽樣才知道，不誇大。</div>
@@ -348,7 +348,7 @@
   <!-- 8e. 雙軌測試 -->
   <section class="slide" data-title="雙軌測試">
     <p class="kicker">測試方法 · 兩條軌道互補</p>
-    <h2 class="h2">我們怎麼測：<span class="gradient-text">自動化品質</span> ＋ <span class="gradient-text">真人端到端</span></h2>
+    <h2 class="h2">我們怎麼測：<span style="color:var(--accent-2)">自動化品質</span> ＋ <span style="color:var(--accent-2)">真人端到端</span></h2>
     <div class="grid g2 mt-l">
       <div class="card good-side" style="border-top:3px solid var(--good)">
         <h4>🤖 DeepEval（自動化）</h4>
@@ -372,7 +372,7 @@
   <!-- 9. 測試成績單（6/30 最新實測） -->
   <section class="slide" data-title="測試成績單">
     <p class="kicker">測試 · DeepEval 最新實測（2026-06-30）</p>
-    <h2 class="h2">成績單：<span class="gradient-text">90 項評分，86 項過</span>（95.6%）</h2>
+    <h2 class="h2">成績單：<span style="color:var(--accent-2)">90 項評分，86 項過</span>（95.6%）</h2>
     <div class="grid g2 mt-l">
       <div class="card good-side" style="border-top:3px solid var(--good)">
         <h4>✅ 安全紅線全過（有餘裕）</h4>
@@ -398,7 +398,7 @@
   <!-- 10. 最大機會 stat -->
   <section class="slide center tc" data-title="最大機會">
     <p class="kicker">釐清 · 一個必須講清楚的事實</p>
-    <h2 class="h2">已斷掉的對話，智能客服<span class="gradient-text">無法主動撈回</span></h2>
+    <h2 class="h2">已斷掉的對話，智能客服<span style="color:var(--accent-2)">無法主動撈回</span></h2>
     <div class="grid g2 mt-l">
       <div class="card bad-side" style="border-top:3px solid var(--bad)">
         <h4>⛔ 為什麼撈不回（平台規則）</h4>
@@ -437,7 +437,7 @@
   <!-- 11b. 實測對話實例 · 業務面 -->
   <section class="slide" data-title="實測·業務">
     <p class="kicker">實測逐字稿 · 業務流程（6/30 對真實系統測試，皆 ✅ 通過）</p>
-    <h2 class="h2">問價、多輪記憶、預約收尾——<span class="gradient-text">真實對話實例</span></h2>
+    <h2 class="h2">問價、多輪記憶、預約收尾——<span style="color:var(--accent-2)">真實對話實例</span></h2>
     <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
       <div class="card" style="border-top:3px solid var(--good)">
         <h4>💰 問價 → 不報價、引導諮詢</h4>
@@ -462,7 +462,7 @@
   <!-- 11c. 實測對話實例 · 安全面 -->
   <section class="slide" data-title="實測·安全">
     <p class="kicker">實測逐字稿 · 高風險情境（6/30，皆 ✅ 正確轉真人）</p>
-    <h2 class="h2">客訴、隱私、術後緊急——<span class="gradient-text">守得住的真實對話</span></h2>
+    <h2 class="h2">客訴、隱私、術後緊急——<span style="color:var(--accent-2)">守得住的真實對話</span></h2>
     <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
       <div class="card bad-side" style="border-top:3px solid var(--bad)">
         <h4>⚖️ 法律客訴 → 不爭辯、轉主管</h4>
@@ -487,7 +487,7 @@
   <!-- 12. 本月收斂趨勢 -->
   <section class="slide" data-title="收斂趨勢">
     <p class="kicker">趨勢 · 本月反覆測試的收斂曲線</p>
-    <h2 class="h2">同一組題、整個 6 月，問題從 <span class="gradient-text">30 → 4</span></h2>
+    <h2 class="h2">同一組題、整個 6 月，問題從 <span style="color:var(--accent-2)">30 → 4</span></h2>
     <div class="grid g3 mt-l anim-stagger-list" data-anim-target>
       <div class="card bad-side" style="border-top:3px solid var(--bad)"><p class="eyebrow">6/12 基期</p><div style="font-size:54px;font-weight:800;color:var(--bad)">30</div><p class="dim">項指標未過（90 項中）<br>20 / 25 案有失敗</p></div>
       <div class="card" style="border-top:3px solid var(--warn)"><p class="eyebrow">6/15 修正中</p><div style="font-size:54px;font-weight:800;color:var(--warn)">↓</div><p class="dim">不報價、繁中、答題相關性<br>陸續壓過門檻</p></div>
@@ -500,7 +500,7 @@
   <!-- 13. 為什麼現在就能上線 -->
   <section class="slide" data-title="可上線依據">
     <p class="kicker">結論 · 為什麼「現在」就能上線</p>
-    <h2 class="h2">安全紅線全過，剩餘都是<span class="gradient-text">「失敗但安全」</span></h2>
+    <h2 class="h2">安全紅線全過，剩餘都是<span style="color:var(--accent-2)">「失敗但安全」</span></h2>
     <div class="grid g2 mt-l">
       <div class="card good-side" style="border-top:3px solid var(--good)">
         <h4>✅ 可上線的硬依據</h4>
